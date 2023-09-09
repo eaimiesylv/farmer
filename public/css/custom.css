@@ -1,0 +1,26 @@
+.agriInvest_container{
+	background:white !important;
+	padding:3em; margin-top:5em;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.spacing1{
+	width:98%;
+	margin:1em auto !important;
+	
+}
+.spacing2{
+	
+	width:96%;
+	margin:1em auto;
+	
+}
+.btnFormat{
+	background:white !important;
+	border:none !important;
+	color:black !important;
+	
+}
+/* Apply margin to all .btnFormat except the first one */
+.btnFormat:not(:first-child) {
+    margin-left: 1em;
+}

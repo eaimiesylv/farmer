@@ -1,0 +1,34 @@
+Deal link is found in routes/CRM/frontend.php
+crmcomponent.js contains list of all component used in the app
+Component in CrmComponent are found under resources/js/crm/Component/
+Investors:resources/js/crm/Component/Views/Contact/Person/Person.vue
+
+
+all deal:Component/Views/Deals/ListView
+pipeline-view:resources/js/crm/Component/Views/Deal/KanbanView:http://localhost:8000/deals/pipeline/view?pipeline=1
+deal modal:Component/Views/Deals/DealModal
+Reports:resources/js/crm/Component/Views/Reports/Invoice
+
+
+
+
+
+
+
+
+
+
+
+//deal upload
+http://localhost:8000/deal/import
+//manage lost deal
+http://localhost:8000/lost/reasons/list/view?per_page=10&page=1
+
+other vue configuration can be foudn at 
+resources/js/core/coreApp.js
+Sidebar is found at
+resources/js/core/component/layout/sidebar.vue
+
+To View User profile
+--->resources/views/auth/profile.blade.php 
+then open app-my-profle from resource->js->crm->component->views->profile->Profile.vue
