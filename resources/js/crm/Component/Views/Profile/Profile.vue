@@ -160,7 +160,7 @@ export default {
         },
         {
           name: this.$t("password_change"),
-          title: this.$t("password_change"),
+          title: 'Password Change',
           component: "app-password-change",
           permission: "",
           props: "",
@@ -187,7 +187,6 @@ export default {
  
   computed: {
     userInfo() {
-     
       
       if (this.initialDetail) {
          
@@ -199,12 +198,19 @@ export default {
      
     },
     visibleTabs() {
-      // Filter the tabs based on 'type' and tab title
+      //If initialDetail has a value, Someone is viewing it
+      if (this.initialDetail != null) {
+        
+        this.tabs=this.tabs.filter(tab => tab.title !== 'Password Change');
+      }
+      
+
+      // Remove investor detail tab if the user is Agribusiness
       if (this.type == 'AgriBusiness') {
        
         return this.tabs.filter(tab => tab.title !== 'Investor Detail');
       } else if (this.type === 'Investor Detail') {
-        
+       // Remove Agribusiness tab if the user is Investor
         return this.tabs.filter(tab => tab.title !== 'AgriBusiness');
        
       } else {
@@ -227,16 +233,16 @@ export default {
             
             this.type="AgriBusiness"
           
-            this.addAgric
+           
             
           }
           if (Array.isArray(user.investor_detail) && user.investor_detail.length>0) {
              //console.log(user.investor_detail)
             this.type="Investor Detail"
-            this.addInvestor
+           
            
           }
-          console.log(this.type)
+          
       },
        immediate: true,
     },

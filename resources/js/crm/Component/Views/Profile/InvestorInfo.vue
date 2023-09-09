@@ -128,14 +128,14 @@
     import HelperMixin from "@app/Mixins/Global/HelperMixin";
 
     export default {
-        name: "PersonalInfo",
+        name: "InvestorInfo",
         props: ['props'],
         mixins: [FormMixin,HelperMixin],
         data(){
             return{
                 userProfileInfo:{},
                 loading: false,
-                preLoader:false,
+                preLoader:true,
                 personEmail: []
             }
         },
@@ -173,53 +173,56 @@
                 this.scrollToTop(false);
                  setTimeout(() => location.reload())
             },
-            getLeadUserInfo(){
-                this.axiosGet(
-                    route('lead.user_info')
-                ).then((res) => {
-                    this.personEmail = res.data.email.map(item => {
-                        return {
-                            id: item.value,
-                            value: item.value
-                        }
-                    })
-                });
-            }
+            // getLeadUserInfo(){
+            //     this.axiosGet(
+            //         route('lead.user_info')
+            //     ).then((res) => {
+            //         this.personEmail = res.data.email.map(item => {
+            //             return {
+            //                 id: item.value,
+            //                 value: item.value
+            //             }
+            //         })
+            //     });
+            // }
         },
         computed: {
             clientRoleAccess(){
                 return (!this.$can('manage_public_access') && this.$can('client_access'));
             },
             userInfo() {
-                return this.$store.getters.getUserInformation
+                if (!this.props) {  
+                    
+                    this.userProfileInfo = {...this.$store.getters.getUserInformation}
+                    return this.$store.getters.getUserInformation;
+                }
             }
         },
 
       created(){
-        this.preLoader = true;
+        if(this.props){
+          this.preLoader = true;
+        }
       },
 
         watch: {
             userInfo: {
                 handler: function (user) {
-                  this.preLoader = false;
-                    this.userProfileInfo = {
-                        ...user,
-                       
-                    };
-                    console.log(this.userProfileInfo)
-
+                   
+                    this.preLoader = false;
+                
                     
                 },
-                deep: true
+                deep: true,
+                 immediate: true 
             }
         },
 
         mounted(){
-            this.$store.dispatch('getUserInformation');
-            if (this.clientRoleAccess){
-                //called at 194
-                this.getLeadUserInfo();
+            if(this.props){
+                this.preLoader = false;
+                this.userProfileInfo = { ...this.props }
+                //console.log(this.userProfileInfo)
             }
         }
 
