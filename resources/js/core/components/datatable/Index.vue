@@ -32,7 +32,7 @@
                         </button>
                     </div>
 
-                    <!--Filter save-->
+                    <!--Filter save -->
 
                     <saved-filter-list
                         v-if="options.enableSaveFilter"

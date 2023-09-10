@@ -11,6 +11,9 @@ class AuthenticateUserController extends Controller
     {
         return auth()->user()->load('roles:id,name', 
                                   'profile:id,user_id,gender,date_of_birth,address,contact',
-                                 'profilePicture', 'status:id,name,class','investor_detail','agricbusiness_detail');
+                                 'profilePicture', 'status:id,name,class',
+                                 'investor_detail',
+                                 'agricbusiness_detail',
+                                 'document');
     }
 }

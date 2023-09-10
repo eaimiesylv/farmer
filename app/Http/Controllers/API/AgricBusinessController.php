@@ -40,7 +40,7 @@ class AgricBusinessController extends Controller
           
         }
         else if($type == 1){
-            
+            //$type 1 is admin type
             $matchingRecords = \App\Models\AgricBusiness::all();
         }
         

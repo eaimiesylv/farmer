@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Document;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Log; 
+use Auth;
 
 class DocumentController extends Controller
 {
@@ -14,7 +17,17 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        return view('crm.document.index');
+        $user_type=Auth::user()->role;
+        if($user_type == 1){
+            //admin
+            $matchingRecords= Document::all();
+            
+        }else{
+            $matchingRecords= Document::where('user_id', Auth::user()->id)->get();
+        }
+      
+        //$matchingRecords=[];
+        return view('crm.document.index')->with('matchingRecords', $matchingRecords);
     }
 
     /**
@@ -35,9 +48,26 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        try{
+            // Validate the uploaded file
+            $request->validate([
+                //'pitchfile' => 'required|file|mimes:pdf,doc,docx,jpg,png|max:1024', // Adjust the allowed file types as needed
+                'pitchfile' => 'required|file|mimes:pdf|max:2060', // Adjust the allowed file types as needed
+            ]);
 
+            // Store the uploaded file in a specific directory (e.g., 'uploads/pitches')
+            $uploadedFile = $request->file('pitchfile');
+            $path = $uploadedFile->store('public/pitches');
+
+            $formdata=array_merge($request->all(),['pitchfile'=>$path,'user_id'=>Auth::user()->id]);
+            Document::create($formdata);
+            return redirect()->route('view_pitch.index')->with('success', 'Pitch file uploaded successfully.');
+        }catch(QueryException $e){
+            Log::error('Error storing document: ' . $e->getMessage());
+            return redirect()->route('view_pitch.index')->with('errors', 'Pitch file upload failed. Try again');
+        } 
+           //
+    }
     /**
      * Display the specified resource.
      *

@@ -609,6 +609,13 @@ Vue.component(
     "app-password-change",
     require("./Component/Views/Profile/PasswordChange").default
 );
+
+Vue.component(
+    "app-profile-pitch",
+    require("./Component/Views/Profile/Pitch").default
+);
+
+
 Vue.component(
     "app-activity-log",
     require("./Component/Views/Profile/Activity").default

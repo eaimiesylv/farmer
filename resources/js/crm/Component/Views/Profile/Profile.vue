@@ -178,6 +178,13 @@ export default {
           component: "app-profile-investor-info",
           permission: "",
           props: this.initialDetail,
+        },
+        {
+          name: 'Pitch',
+          title: 'Pitch',
+          component: "app-profile-pitch",
+          permission: "",
+          props: this.initialDetail,
         }
       
       ],
@@ -189,10 +196,11 @@ export default {
     userInfo() {
       
       if (this.initialDetail) {
-         
+         //console.log(this.initialDetail)
         return this.initialDetail;
       } else {
-        // Use the value from the 
+        // Use the value from the
+         //console.log(this.$store.getters.getUserInformation) 
          return this.$store.getters.getUserInformation;
       }
      
@@ -211,7 +219,8 @@ export default {
         return this.tabs.filter(tab => tab.title !== 'Investor Detail');
       } else if (this.type === 'Investor Detail') {
        // Remove Agribusiness tab if the user is Investor
-        return this.tabs.filter(tab => tab.title !== 'AgriBusiness');
+       return this.tabs.filter(tab => tab.title !== 'AgriBusiness' && tab.title !== 'Pitch');
+   
        
       } else {
         return this.tabs;

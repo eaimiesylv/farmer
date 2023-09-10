@@ -17,6 +17,7 @@ use Spatie\Activitylog\Traits\CausesActivity;
 use Spatie\Activitylog\Traits\LogsActivity;
 use App\Models\InvestorDetail;
 use App\Models\AgricBusiness;
+use App\Models\Document;
 
 
 class User extends BaseUser implements HasLocalePreference
@@ -61,6 +62,10 @@ class User extends BaseUser implements HasLocalePreference
 	 public function agricbusiness_detail()
     {
         return $this->hasMany(AgricBusiness::class);
+    }
+    public function document()
+    {
+        return $this->hasMany(Document::class);
     }
 
 

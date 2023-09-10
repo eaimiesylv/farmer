@@ -88,7 +88,7 @@
                 <tr v-if="isUndefined(options.showHeader) || options.showHeader"
                     :key="id+'-table-header'">
 
-                    <!--all select checkbox-->
+                    <!--all select checkbox -->
                     <th v-if="!allColumnDisable && options.enableRowSelect"
                         :key="id+'-customized-checkbox'"
                         class="datatable-th pt-0 pr-0">

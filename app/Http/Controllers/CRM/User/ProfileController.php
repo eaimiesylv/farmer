@@ -13,16 +13,17 @@ class ProfileController extends Controller
        return view('auth.profile')->with('detail',null);
     }
     public function agriBusinessDetail($id, $type){
-       
+       //reads user detail either agri business or investor detail
         $user=\App\Models\Core\Auth\User::find($id);
         if($user){
-           $agriBusinessDetail=$user->load('roles:id,name', 
+           $agriBusiness_investor_detail=$user->load('roles:id,name', 
                                             'profile:id,user_id,gender,date_of_birth,address,contact',
                                             'profilePicture', 'status:id,name,class',
                                             'investor_detail',
-                                            'agricbusiness_detail');
-                                            
-            return view('auth.profile')->with('detail',$agriBusinessDetail);
+                                            'agricbusiness_detail',
+                                            'document');
+                                          
+            return view('auth.profile')->with('detail',$agriBusiness_investor_detail);
         }
         
         // 

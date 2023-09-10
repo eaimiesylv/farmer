@@ -1,6 +1,7 @@
 <template>
     <div class="content-wrapper calendar-position-modified">
         <div class="row">
+            <!-- Header of the div-->
             <div class="col-sm-12 col-md-6">
                 <app-breadcrumb
                     page-title="Pitch"
@@ -20,6 +21,7 @@
                 </div>
             </div>
         </div>
+    
         
         <app-table
             :id="activityModalId"
@@ -76,7 +78,7 @@ export default {
                 url: route('activities.index'),
                 showHeader: true,
                 columns: [
-                   /* {
+                    {
                         title: this.$t("done"),
                         type: "component",
                         key: "status_id",
@@ -136,7 +138,7 @@ export default {
                                 `</p>`;
                         },
                     },
-                    /*{
+                    {
                         title: this.$t("starting_schedule"),
                         type: "custom-html",
                         key: "started_at",
@@ -224,7 +226,7 @@ export default {
                         key: "owner_is",
                         option: [],
                         permission: this.$can('manage_public_access') ? true : false
-                    },*/
+                    },
                 ],
                 showSearch: true,
                 showFilter: true,

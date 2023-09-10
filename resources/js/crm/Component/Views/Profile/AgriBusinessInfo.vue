@@ -342,7 +342,7 @@
             if(this.props){
                 this.preLoader = false;
                 this.userProfileInfo = { ...this.props }
-                console.log(this.userProfileInfo)
+                //console.log(this.userProfileInfo)
             }
             
         }
