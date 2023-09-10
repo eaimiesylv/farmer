@@ -6,6 +6,7 @@ use App\Models\Document;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Log; 
+use App\FileUpload\Imageupload;
 use Auth;
 
 class DocumentController extends Controller
@@ -56,11 +57,13 @@ class DocumentController extends Controller
             ]);
 
             // Store the uploaded file in a specific directory (e.g., 'uploads/pitches')
-            $uploadedFile = $request->file('pitchfile');
-            $path = $uploadedFile->store('public/pitches');
-
-            $formdata=array_merge($request->all(),['pitchfile'=>$path,'user_id'=>Auth::user()->id]);
-            Document::create($formdata);
+           // $uploadedFile = $request->file('pitchfile');
+           // $path = $uploadedFile->store('public/pitches');
+           
+            $path= new Imageupload($request->file('pitchfile'),'doc','none');
+           
+            $formdata=array_merge($request->all(),['pitchfile'=>$path->storage_path,'user_id'=>Auth::user()->id]);
+            Document::FirstOrCreate($formdata);
             return redirect()->route('view_pitch.index')->with('success', 'Pitch file uploaded successfully.');
         }catch(QueryException $e){
             Log::error('Error storing document: ' . $e->getMessage());

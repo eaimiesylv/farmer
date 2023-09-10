@@ -70,7 +70,7 @@
                         <td>{{ $record->pitchname }}</td>
                         <td>{{ $record->pitchtype }}</td>
                         <td>
-                            <a href="{{ asset('storage/' . str_replace('public/', '', $record->pitchfile)) }}" target="_blank">
+                            <a href="{{ url($record->pitchfile) }}" target="_blank">
                                 <i class="fas fa-eye"></i>
                             </a>
                             <i class="fas fa-trash" style="color:red;margin:0 1em;"></i>

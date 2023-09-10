@@ -43,9 +43,10 @@
 
         methods: {
                 getPitchFileUrl(pitchfile) {
-                   
-                    const withoutPublic = pitchfile.replace('public/', '');
-                    return `/storage/${withoutPublic}`;
+                   //alert(pitchfile)
+                    let withoutPublic = pitchfile.replace('admin/', '');
+                    return `/${withoutPublic}`;
+                    //return pitchfile
                 }
             },
 

@@ -14,6 +14,7 @@ class ProfileController extends Controller
     }
     public function agriBusinessDetail($id, $type){
        //reads user detail either agri business or investor detail
+       
         $user=\App\Models\Core\Auth\User::find($id);
         if($user){
            $agriBusiness_investor_detail=$user->load('roles:id,name', 

@@ -8,8 +8,8 @@ use App\Http\Controllers\Setup\AppUpdateController;
 use App\Models\Core\Auth\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DocumentController;
-use App\Http\Controllers\Api\AgricBusinessController;
-use App\Http\Controllers\Api\InvestorDetailController;
+use App\Http\Controllers\API\AgricBusinessController;
+use App\Http\Controllers\API\InvestorDetailController;
 
 //https://docs.google.com/document/d/1rfZoFNZ9JBXxA6RR12VWzHJq_I71YmMxtsNBA8uwHQQ/edit
 /*
