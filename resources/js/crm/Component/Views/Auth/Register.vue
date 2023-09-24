@@ -52,7 +52,7 @@
           <button class="bluish-text btn btn-success btn-block text-center"
             @click="nextPage"
             v-if="currentPage === 1 && userRole !== null && userRole !== 0"
-            :disabled="userRole === null || userRole === 0"
+            :disabled="userRole === null || userRole === 0  "
           >
             Next
           </button>
@@ -129,7 +129,7 @@ export default {
     validateCommonFields() {
       // Access the Common component using the reference
       this.commonField = this.$refs.commonComponent;
-
+      
       // Check if all required fields are filled in the Common component
       const requiredFieldsFilled =
         this.commonField.fields.phone_number &&
@@ -164,12 +164,29 @@ export default {
         // Success handling
         this.$toastr.s(response.data.message);
         this.$router.push('/admin/users/login');
-        console.log('Registration successful:', response.data.message);
+        console.log('Registration successful :', response.data.message);
         // Redirect or show a success message to the user
       } 
     } catch (error) {
       if (error.response) {
-        this.$toastr.s('An error occur');
+       
+        const errorData = error.response.data.error;
+
+        // Show an error toast for each error message
+        for (const key in errorData) {
+            if (errorData.hasOwnProperty(key)) {
+                const errorMessages = errorData[key];
+                errorMessages.forEach(errorMessage => {
+                  const messageParts = errorMessage.split('.');
+                  if (messageParts.length > 1) {
+                    this.$toastr.e(`${messageParts[1]}`);
+                   }
+                   
+                });
+            }
+        }
+
+        this.$toastr.s('An error occurred.'); 
        
       // The request was made and the server responded with an error status code
       console.error('Response data:', error.response.data.error);

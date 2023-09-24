@@ -9,6 +9,7 @@ import {urlGenerator} from "./crm/Helpers/helpers";
 import crmVuexStore from "./crm/Store";
 import router from './router';
 
+
 window.moment = moment;
 window.Vue = Vue;
 

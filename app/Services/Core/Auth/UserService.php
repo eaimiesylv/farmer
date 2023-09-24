@@ -33,6 +33,7 @@ class UserService extends BaseService
 
     public function create()
     {
+        
         $status = Status::findByNameAndType('status_active', 'user')->id;
 
         parent::save($this->getFillAble(array_merge(request()->only(
@@ -169,15 +170,21 @@ class UserService extends BaseService
 
     public function login()
     {
+        
         /**@var $user User*/
         $user = $this->model::findByEmail( request()->get('email') );
-
+        
         BeforeLogin::new(true)
             ->setModel($user)
             ->handle();
 
         if (!$user->roles->count())
             throw new AuthenticationException(trans('default.no_roles_found'));
+
+        if ($user->verify != 1) {
+             
+                throw new AuthenticationException(trans('Email not verifield'));
+        }
 
         if (Hash::check(request()->get('password'), optional($user)->password)) {
             auth()->login(

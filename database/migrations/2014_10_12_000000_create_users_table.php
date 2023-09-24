@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('email', 160)->unique();
+            $table->integer('verify')->default(0);
             $table->integer('role')->default(0)->comment('1 for admin, 3 for agric, 4 of investor');
             $table->string('fullname', 160)->nullable();
             $table->string('company_website', 160)->nullable();

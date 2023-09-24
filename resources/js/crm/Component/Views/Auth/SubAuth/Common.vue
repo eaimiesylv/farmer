@@ -29,13 +29,15 @@
                   <label>{{ $t("password") }}</label>
                   <app-input
                     type="password"
-                    v-on:keyup.enter="submitData"
+                    v-on:blur="ValidatePassword()"
                     :placeholder="$t('your_password')"
                     :required="true"
                     v-model="fields.password"
                     :show-password="true"
                   />
                 </div>
+                <span v-if="fields.error" class="text-danger">Password must contain at least one uppercase letter, 
+                  one lowercase letter, and be at least 6 characters long.</span>
             </div>
             
             <!--1.Agric Business-->
@@ -83,6 +85,7 @@
   
   <script>
   
+
   
   export default {
     name: "Common",
@@ -95,7 +98,8 @@
           fullname:'',
           email: '',
           password:'',
-          phone_number:''
+          phone_number:'',
+          error:false,
          
         },
         
@@ -116,6 +120,27 @@
         });
         //alert(this.userRole)
       },
+      ValidatePassword(){
+          const password = this.fields.password;
+           // Check if the password has at least one uppercase letter
+           const hasUppercase = /[A-Z]/.test(password);
+
+        // Check if the password has at least one lowercase letter
+        const hasLowercase = /[a-z]/.test(password);
+
+        // Check if the password has a minimum length of 6 characters
+        const isLengthValid = password.length >= 6;
+
+        // Check all conditions and show an error message if any condition fails
+        if (!hasUppercase || !hasLowercase || !isLengthValid) {
+          this.fields.error = true; // Set error flag to true
+          this.fields.password = '';
+          
+        } else {
+          this.fields.error = false; // Reset error flag if all conditions are met
+        }
+        
+      }
       
     },
   
