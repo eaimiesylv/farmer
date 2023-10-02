@@ -74,6 +74,21 @@ class SelectableController extends Controller
             ->select('id', 'name')
             ->paginate(request()->per_page ?? 15);
     }
+    public function selectableInvestors()
+    {
+        $selected = request()->get('selected');
+        
+        return User::query()->get();
+            // ->permission()
+            // ->when($selected, function ($query) use ($selected) {
+            //     if (!request()->get('search')) {
+            //         $query->where('id', $selected);
+            //     }
+            // })
+           
+            // ->select('id', 'fullname')
+            // ->paginate(request()->per_page ?? 15);
+    }
 
     // Relational data is loaded according to previous api
     public function selectableDeals()

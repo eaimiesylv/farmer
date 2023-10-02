@@ -46,11 +46,11 @@ class UserApiController extends Controller
         //Mail::to($email)->send(new WelcomeEmail($email));
         //send email
         $validator = Validator::make($request->all(), [
-            'commonComponentData.company_website' => 'nullable|string|max:255',
-            'commonComponentData.contact_person' => 'required|string|max:255',
-            'commonComponentData.email' => 'required|email|max:255|unique:users,email',
-            'commonComponentData.fullname' => 'required|string|max:255',
-            'commonComponentData.password' => 'required|string|min:6',
+            'commonComponentData.company_website' => 'nullable|string|max:65',
+            'commonComponentData.contact_person' => 'required|string|max:60',
+            'commonComponentData.email' => 'required|email|max:50|unique:users,email',
+            'commonComponentData.fullname' => 'required|string|max:50',
+            'commonComponentData.password' => 'required|string|min:6|max:15',
             'commonComponentData.phone_number' => 'required|string|max:20|unique:users,phone_number',
         ]);
 
@@ -172,4 +172,22 @@ class UserApiController extends Controller
     {
         //
     }
+    public function phone_exist($phone){
+            $user=User::select('id')->where('phone_number', $phone)->first();
+            if($user){
+                return response()->json(['status'=>'success', 'message'=>"exist"], 200);
+            }else{
+                return response()->json(['status'=>'error', 'message'=>"not exist"], 200);
+            }
+          
+    }
+    public function email_exist($email){
+        $user=User::select('id')->where('email', $email)->first();
+        if($user){
+            return response()->json(['status'=>'success', 'message'=>"exist"], 200);
+        }else{
+            return response()->json(['status'=>'error', 'message'=>"not exist"], 200);
+        }
+      
+}
 }

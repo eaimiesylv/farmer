@@ -43,9 +43,14 @@ class AgricBusinessController extends Controller
             //$type 1 is admin type
             $matchingRecords = \App\Models\AgricBusiness::all();
         }
-        
-        $matchingRecords->load('user');
-        return view('crm.agribusiness.index')->with('matchingRecords', $matchingRecords);
+        if(count($matchingRecords)>0){
+            $matchingRecords->load('user');
+            return view('crm.agribusiness.index')->with('matchingRecords', $matchingRecords);
+        }else{
+            return view('crm.agribusiness.index')->with('matchingRecords', $matchingRecords);
+        }
+      
+       
 
        
         

@@ -5,16 +5,23 @@
       <div v-if="currentPage === 1">
         <div class="form-row">
           <div class="form-group col-12">
-            <label>Register as</label>
-            <app-input
+            <label class="col-12">Register as </label>
+            <select class="col-12" v-model="userRole" required>
+              <option value="" disabled selected>Select a category</option>
+              <option value="3">Agric Businesss</option>
+              <option value="4">Investor</option>
+            </select>
+            <!-- <app-input
               type="select"
               id="input-select"
               :placeholder="$t('select_a_role')"
+              :required=true
               v-model="userRole"
               @change="setUserInfo"
               :list="userTypeList"
              
-            />
+             
+            /> -->
           </div>
         </div>
         <!-- Render components or content for page 1 -->
@@ -132,6 +139,7 @@ export default {
       
       // Check if all required fields are filled in the Common component
       const requiredFieldsFilled =
+        this.userRole && 
         this.commonField.fields.phone_number &&
         this.commonField.fields.email &&
         this.commonField.fields.password &&

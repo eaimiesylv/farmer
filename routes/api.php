@@ -20,3 +20,5 @@ use Illuminate\Http\Request;
 Route::resource('investor_detail', App\Http\Controllers\API\InvestorDetailController::class);
 Route::resource('agric_business_detail', App\Http\Controllers\API\AgricBusinessController::class);
 Route::resource('user', App\Http\Controllers\API\UserApiController::class);
+Route::get('user/phone_exist/{id}', [App\Http\Controllers\API\UserApiController::class,'phone_exist']);
+Route::get('user/email_exist/{id}', [App\Http\Controllers\API\UserApiController::class,'email_exist']);

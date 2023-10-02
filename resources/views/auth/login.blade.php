@@ -38,11 +38,11 @@ use Illuminate\Support\Str;
     <div class="container-fluid p-0">
         <div class="row">
         
-            <div class="col-sm-6 col-md-6 col-lg-8">
+            <div class="col-sm-6 col-md-6 col-lg-8 back-image">
                 
-               <div class="back-image" style="background-image: url('{{ asset('images/banner.png') }}')"></div>
+               <!-- <div class="back-image" style="background-image: url('{{ asset('images/banner.png') }}')"></div>
+                -->
                
-                
             </div>
             
                 <div class="col-sm-6 col-md-6 col-lg-4 pl-0 ">

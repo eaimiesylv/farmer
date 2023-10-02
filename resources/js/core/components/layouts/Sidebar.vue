@@ -3,12 +3,12 @@
     <div
       class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
     >
-      <a class="navbar-brand brand-logo" :href="logoUrl">
-        <img :src="logoSrc" alt="logo" />
+       <a class="navbar-brand brand-logo" :href="logoUrl">
+        <img src="/images/log.png" alt="logo" />
       </a>
       <a class="navbar-brand brand-logo-mini" :href="logoUrl">
-        <img :src="logoIconSrc" alt="logo" />
-      </a>
+        <img src="/images/log.png" alt="logo" />
+      </a> 
     </div>
 
     <ul class="nav nav-scrolling">

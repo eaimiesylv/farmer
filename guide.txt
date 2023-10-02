@@ -10,7 +10,8 @@ deal modal:Component/Views/Deals/DealModal
 Reports:resources/js/crm/Component/Views/Reports/Invoice
 
 
-
+*****Route*****************
+all custom routes are found in web.php
 
 
 

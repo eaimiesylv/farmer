@@ -60,6 +60,7 @@ export default {
         }
     },
     mounted() {
+        //called on mounted
         $('.modal').on('shown.bs.modal', (e) => {
             $('html').css('overflow-y', 'hidden');
         })

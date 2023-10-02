@@ -65,8 +65,35 @@
                 ],
             ],
         ],*/
-
+        
         [
+            'id' => 'deals',
+            'icon' => 'clipboard',
+            'name' => __('default.deals',[],$locale),
+            'permission' => authorize_any(['view_deals', 'manage_deal']),
+            'subMenu' => [
+                
+                [
+                    'name' => __('default.all_deals',[],$locale),
+                    'url' => request()->root().'admin/deal',
+                    'permission' => authorize_any(['manage_deal']),
+
+                ],
+                [
+                    'name' => __('default.pipelines',[],$locale),
+                    'url' => request()->root().'/admin/deal',
+                    'permission' => authorize_any(['manage_deal']),
+                ],
+                [
+                    'name' => __('default.pipeline_view',[],$locale),
+                    'url' => request()->root().'/admin/deal',
+                    'permission' => authorize_any(['manage_deal']),
+
+                ]
+                 
+            ],
+        ],
+        /*[
             'id' => 'deals',
             'icon' => 'clipboard',
             'name' => __('default.deals',[],$locale),
@@ -92,7 +119,7 @@
                 ]
                  
             ],
-        ],
+        ],*/
         [
            'icon' => 'file-text',
            'name' => __('default.invoices',[],$locale),
@@ -118,7 +145,7 @@
                 ],
             ],
         ],
-        [
+        /*[
             'id' => 'activities',
             'icon' => 'activity',
             'name' => __('default.activities',[],$locale),
@@ -135,8 +162,8 @@
                     'permission' => authorize_any(['view_activities']),
                 ],
             ],
-        ],
-        [
+        ],*/
+        /* [
             'id' => __t('expenses'),
             'icon' => 'dollar-sign',
             'name' => __t('expenses'),
@@ -153,7 +180,7 @@
                     'permission' =>  authorize_any(['view_expense_area'])
                 ]
             ],
-        ],
+        ],*/
         [
             'id' => 'reports',
             'icon' => 'bar-chart',

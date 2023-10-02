@@ -40,10 +40,15 @@ class InvestorDetailController extends Controller
             
             $matchingRecords = \App\Models\InvestorDetail::all();
         }
-      
-        $matchingRecords->load('user');
+        if(count($matchingRecords)>0){
+            $matchingRecords->load('user');
+            return view('crm.investordetail.index')->with('matchingRecords', $matchingRecords);
+        }else{
+            return view('crm.investordetail.index')->with('matchingRecords', $matchingRecords);
+        }
+       
         
-        return view('crm.investordetail.index')->with('matchingRecords', $matchingRecords);
+       
     }
 
     /**

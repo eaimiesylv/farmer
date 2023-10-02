@@ -10,6 +10,8 @@ Route::group(['prefix' => 'app'], function (Router $route) {
     $route->get('selectable/tags', [SelectableController::class, 'selectableTags'])->name('selectable.tags');
     $route->get('selectable/persons', [SelectableController::class, 'selectablePersons'])->name('selectable.persons');
 
+    $route->get('selectable/investors', [SelectableController::class, 'selectableInvestors'])->name('selectable.investors');
+
     $route->get('selectable/deals', [SelectableController::class, 'selectableDeals'])->name('selectable.deals');
     $route->get('selectable/owners', [SelectableController::class, 'selectableOwners'])->name('selectable.owners');
 
