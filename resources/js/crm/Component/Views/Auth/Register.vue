@@ -5,7 +5,7 @@
       <div v-if="currentPage === 1">
         <div class="form-row">
           <div class="form-group col-12">
-            <label class="col-12">Register as </label>
+            <label class="col-12">Register as <span class="text-danger">*</span> </label>
             <select class="col-12" v-model="userRole" required>
               <option value="" disabled selected>Select a category</option>
               <option value="3">Agric Businesss</option>

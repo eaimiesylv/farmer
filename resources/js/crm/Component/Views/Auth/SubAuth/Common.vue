@@ -4,7 +4,7 @@
           
             <div class="form-row">
               <div class="form-group col-12">
-                <label>Fullname</label>
+                <label>Fullname <span class="text-danger">*</span></label>
                 <app-input
                   type="text"
                   :required="true"
@@ -16,7 +16,7 @@
             <div class="form-row">
             
                 <div class="form-group col-12">
-                  <label>{{ $t("email") }}</label>
+                  <label>{{ $t("email") }}  <span class="text-danger">*</span></label>
                   <app-input
                     type="email"
                     @blur="ValidateEmail()"
@@ -31,7 +31,7 @@
             <div class="form-row">
               
                 <div class="form-group col-12">
-                  <label>{{ $t("password") }}</label>
+                  <label>{{ $t("password") }} <span class="text-danger">*</span></label>
                   <app-input
                     type="password"
                     @blur="ValidatePassword()"
@@ -61,7 +61,7 @@
              <!-- 3 Contact Person -->
             <div class="form-row">
               <div class="form-group col-12">
-                <label>Contact Person</label>
+                <label>Contact Person <span class="text-danger">*</span></label>
                 <app-input
                   type="text"
                   v-model="fields.contact_person"
@@ -74,7 +74,7 @@
             <div class="form-row">
            
               <div class="form-group col-12">
-                <label>Phone number</label>
+                <label>Phone number <span class="text-danger">*</span></label>
                 <app-input
                   type="text"
                   @blur="ValidateNumber()"
@@ -85,7 +85,9 @@
               </div>
                
             </div>
-            <span v-if="phone_exist" class="text-danger">Phone number already exist</span>
+            <span v-if="invalid_phone_number" class="text-danger">Please enter a valid phone number</span>
+            <span v-else-if="phone_exist" class="text-danger">Phone number already exist</span>
+            <span v-else> </span>
               <!--  Agric Business -->
           
   
@@ -115,6 +117,7 @@
           password_error:false,
           phone_exist:false,
           email_exist:false,
+          invalid_phone_number:false
       };
     },
     computed: {
@@ -134,6 +137,17 @@
       },
       async ValidateNumber(){
         try{
+          const isValidPhoneNumber = /^(?:\+\d{1,4})?\d+$/.test(this.fields.phone_number);
+          const isPhoneNumberLengthValid = this.fields.phone_number.length <= 15;
+        if (!isValidPhoneNumber || !isPhoneNumberLengthValid) {
+         
+            // If the phone number is not valid, show an error message
+            this.invalid_phone_number = true;
+            this.fields.phone_number = '';
+            return;
+          }else{
+            this.invalid_phone_number = false;
+          }
          let url='https://connect.fnsdealroom.com/api/user/phone_exist/'+this.fields.phone_number;
          //let url='http://localhost:8000/api/user/phone_exist/'+this.fields.phone_number;
         const response = await axios.get(url);
@@ -152,6 +166,8 @@
       },
       async ValidateEmail(){
         try{
+        // Check if the phone number is valid
+      
          let url='https://connect.fnsdealroom.com/api/user/phone_exist/'+this.fields.email;
          //let url='http://localhost:8000/api/user/email_exist/'+this.fields.email;
          

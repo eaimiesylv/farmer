@@ -66,43 +66,49 @@
             ],
         ],*/
         
-        [
+       /* [
             'id' => 'deals',
             'icon' => 'clipboard',
-            'name' => __('default.deals',[],$locale),
+            'name' => __('Manage deal',[],$locale),
             'permission' => authorize_any(['view_deals', 'manage_deal']),
             'subMenu' => [
                 
                 [
-                    'name' => __('default.all_deals',[],$locale),
-                    'url' => request()->root().'admin/deal',
+                    'name' => __('Manage deal',[],$locale),
+                    'url' => request()->root().'admin/managedeal',
                     'permission' => authorize_any(['manage_deal']),
 
                 ],
                 [
-                    'name' => __('default.pipelines',[],$locale),
-                    'url' => request()->root().'/admin/deal',
+                    'name' => __('Manage deal',[],$locale),
+                    'url' => request()->root().'/admin/managedeal',
                     'permission' => authorize_any(['manage_deal']),
                 ],
                 [
-                    'name' => __('default.pipeline_view',[],$locale),
-                    'url' => request()->root().'/admin/deal',
+                    'name' => __('Manage deal',[],$locale),
+                    'url' => request()->root().'/admin/managedeal',
                     'permission' => authorize_any(['manage_deal']),
 
                 ]
                  
             ],
-        ],
-        /*[
+        ],*/
+        [
             'id' => 'deals',
             'icon' => 'clipboard',
             'name' => __('default.deals',[],$locale),
-            'permission' => authorize_any(['view_deals', 'view_pipelines', 'view_lost_reasons']),
+            'permission' => authorize_any(['view_deals', 'view_pipelines', 'view_lost_reasons','manage_deal']),
             'subMenu' => [
-                
                 [
                     'name' => __('default.all_deals',[],$locale),
                     'url' => request()->root().'/deals/list/view',
+                    'permission' => authorize_any(['view_deals']),
+
+                ],
+                
+                [
+                    'name' => __('default.all_deals',[],$locale),
+                    'url' => request()->root().'/admin/managedeals',
                     'permission' => authorize_any(['view_deals']),
 
                 ],
@@ -119,7 +125,7 @@
                 ]
                  
             ],
-        ],*/
+        ],
         [
            'icon' => 'file-text',
            'name' => __('default.invoices',[],$locale),

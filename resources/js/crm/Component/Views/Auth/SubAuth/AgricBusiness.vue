@@ -4,7 +4,7 @@
            <!--  Name Of Organization -->
           <div class="form-row">
             <div class="form-group col-12">
-              <label>Name Of Organization</label>
+              <label>Name Of Organization <span class="text-danger">*</span></label>
               <app-input
                 type="text"
                 v-model="fields.organizationName"
@@ -18,7 +18,7 @@
            <!-- Name of deal -->
           <div class="form-row">
             <div class="form-group col-12">
-              <label>Name Of Deal</label>
+              <label>Name Of Deal <span class="text-danger">*</span></label>
               <app-input
                 type="text"
                 v-model="fields.dealName"
@@ -31,7 +31,7 @@
           <!-- Deal Promoter(s) -->
           <div class="form-row">
             <div class="form-group col-12">
-              <label>Deal Promoter(s)</label>
+              <label>Deal Promoter(s) <span class="text-danger">*</span></label>
               <app-input
                 type="text"
                 v-model="fields.dealPromoters"
@@ -44,7 +44,7 @@
           <!-- Describe The Deal -->
           <div class="form-row">
             <div class="form-group col-12">
-              <label> Describe The Deal</label>
+              <label> Describe The Deal <span class="text-danger">*</span></label>
               <textarea
                 v-model="fields.dealDescription"
                 rows="4"
@@ -56,7 +56,7 @@
           <!--  Do You Have A Bankable Business Plan -->
           <div class="form-row">
             <div class="form-group col-12">
-              <label>Do You Have A Bankable Business Plan</label>
+              <label>Do You Have A Bankable Business Plan <span class="text-danger">*</span></label>
               <div>
                 <label v-for="planOption in bankableBusinessPlans" :key="planOption.value" class="form-checkbox-label">
                   <input
@@ -76,7 +76,7 @@
           <!-- Focal States -->
           <div class="form-row">
             <div class="form-group col-12">
-              <label>Focal States</label>
+              <label>Focal States <span class="text-danger">*</span></label>
               <app-input
                 type="text"
                 v-model="fields.focalStates"
@@ -89,7 +89,7 @@
       <!-- Ticket Size -->
       <div class="form-row">
         <div class="form-group col-12">
-          <label class="col-12">Ticket Size</label>
+          <label class="col-12">Ticket Size <span class="text-danger">*</span></label>
           <select class="col-12" v-model="fields.ticketSize" required>
             <option v-for="ticketSizeOption in ticketSizes" :key="ticketSizeOption.value" :value="ticketSizeOption.value ">
               {{ ticketSizeOption.label }}
@@ -100,7 +100,7 @@
       <!--  How Much Are You Looking To Raise? -->
       <div class="form-row">
         <div class="form-group col-12">
-          <label>How Much Are You Looking To Raise?</label>
+          <label>How Much Are You Looking To Raise? <span class="text-danger">*</span></label>
           <textarea
             v-model="fields.raiseAmount"
             :required="true" 
@@ -113,7 +113,7 @@
       <!-- For What Purpose -->
       <div class="form-row">
         <div class="form-group col-12">
-          <label> For What Purpose</label>
+          <label> For What Purpose <span class="text-danger">*</span></label>
           <textarea
             v-model="fields.purpose"
             rows="4"
@@ -126,7 +126,7 @@
      <!-- Preferred Value Chain -->
     <div class="form-row">
       <div class="form-group col-12">
-        <label>Preferred Value Chain</label>
+        <label>Preferred Value Chain <span class="text-danger">*</span></label>
         <input type="radio" :checked="fields.preferredValueChain.length > 0" name="checkChain"  class="custom-checkbox" required/>
         <div v-for="valueChain in preferredValueChains" :key="valueChain.value" class="form-checkbox-label">
           <label>

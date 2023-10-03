@@ -4,7 +4,7 @@
     <!-- Finance / Funding Institution -->
     <div class="form-row">
       <div class="form-group col-12">
-        <label>Finance / Funding Institution</label>
+        <label>Finance / Funding Institution <span class="text-danger">*</span></label>
         <app-input
           type="text"
           v-model="fields.finance_institution"
@@ -17,7 +17,7 @@
     <!-- Type of Investment -->
     <div class="form-row">
       <div class="form-group col-12">
-        <label>Type of Investment(Pick all that applies to you)</label>
+        <label>Type of Investment(Pick all that applies to you) <span class="text-danger">*</span></label>
         <input type="radio" :checked="fields.investment_type.length > 0" name="checkChain"  class="custom-checkbox" required/>
         <div class="form-checkboxes">
           <label v-for="investmentTypeOption in investment_types" :key="investmentTypeOption.value" class="form-checkbox-label">
@@ -37,7 +37,7 @@
     <!-- Preferred Deal Size -->
     <div class="form-row">
       <div class="form-group col-12">
-        <label>Preferred Deal Size</label>
+        <label>Preferred Deal Size <span class="text-danger">*</span></label>
         <div class="form-radio-buttons">
           <label v-for="dealSizeOption in preferred_deal_sizes" :key="dealSizeOption.value" class="form-radio-label">
             <input
@@ -56,7 +56,7 @@
     <!-- Type of Funding -->
     <div class="form-row">
       <div class="form-group col-12">
-        <label>Type of Funding</label>
+        <label>Type of Funding <span class="text-danger">*</span></label>
         <div class="form-radio-buttons">
           <label v-for="fundingOption in funding_types" :key="fundingOption.value" class="form-radio-label">
             <input
@@ -75,7 +75,7 @@
     <!-- Brief description of your organization -->
     <div class="form-row">
       <div class="form-group col-12">
-        <label>Brief description of your organization</label>
+        <label>Brief description of your organization <span class="text-danger">*</span></label>
         <textarea
           v-model="fields.organization_description"
           :required="true"

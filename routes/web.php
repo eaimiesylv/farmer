@@ -86,7 +86,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'authorize']], funct
     Route::resource('/pitch/view_pitch', DocumentController::class);
     Route::resource('/agri_business', AgricBusinessController::class);
     Route::resource('/investor_detail', InvestorDetailController::class);
-    Route::resource('/managedeals', ManageDealController::class);
+    Route::resource('/managedeals', DocumentController::class);
     Route::get('/user_detail/{id}/{type}',[App\Http\Controllers\CRM\User\ProfileController::class, 'agriBusinessDetail']);
 });
 
