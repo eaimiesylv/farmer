@@ -1,11 +1,11 @@
 <template>
   <div class="content-wrapper">
     <app-breadcrumb :page-title="$t('my_profile')" :icon="'user'" />
-    <div class="user-profile mb-primary">
-      <div class="card position-relative card-with-shadow py-primary border-0">
+    <div class="user-profile mb-primary" v-if="userProfile">
+      <div class="card position-relative card-with-shadow py-primary border-0" >
         <app-overlay-loader v-if="dataLoaded" class="h-100" />
         <div class="row align-items-center" v-else>
-          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-5">
+          <div   class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-5">
             <div
               class="media border-right px-5 pr-xl-5 pl-xl-0 align-items-center user-header-media"
             >
@@ -98,16 +98,16 @@
                       </div>
                     </div>
                     <div class="media mb-0 mb-xl-0">
-                      <div class="align-self-center mr-3">
+                      <!--<div class="align-self-center mr-3">
                         <app-icon :name="'gift'" />
                       </div>
-                      <div class="media-body">
+                       <div class="media-body">
                         <p class="text-muted mb-0">{{ $t("date_of_birth") }}:</p>
                         <p class="mb-0" v-if="loggedInUser.profile">
                           {{ loggedInUser.profile.date_of_birth }}
                         </p>
                         <p class="mb-0" v-else>{{ $t("not_added_yet") }}</p>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -149,6 +149,7 @@ export default {
       socialLinks: [],
       type:'investor',
       tabIcon: "user",
+      userProfile:true,
       tabs: [
         {
           name: this.$t("personal_info"),
@@ -208,8 +209,9 @@ export default {
     visibleTabs() {
       //If initialDetail has a value, Someone is viewing it
       if (this.initialDetail != null) {
-        
+        this.userProfile=false;
         this.tabs=this.tabs.filter(tab => tab.title !== 'Password Change');
+        this.tabs=this.tabs.filter(tab => tab.title !== this.$t("personal_info"));
       }
       
 

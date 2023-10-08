@@ -19,9 +19,9 @@
             </button>
 
             <!-- Button with Icons -->
-            <button class="btn btn-primary ml-auto">
+            <!-- <button class="btn btn-primary ml-auto">
                 <i class="fas fa-search"></i> Search
-            </button>
+            </button> -->
         </div>
     </div>
 </div>

@@ -44,25 +44,32 @@
                 </button>
               </div>
             </div>
+            
 
 
 
           <div class="form-row">
-              <div class="col-6">
+              <div class="col-12">
                 <!--register button-->
-                <router-link to="/admin/users/register" class="bluish-text">
+                <button
+                  type="button"
+                  class="btn btn-success btn-block text-center"
+                  @click="submitData"
+                >
+                <router-link to="/admin/users/register" class="text-white">
                   <i data-feather="user" class="pr-2" />
-                  Register
+                  Register 
               </router-link>
+            </button>
               </div>
-              <div class="col-6 text-right">
+              <!--<div class="col-6 text-right">
                
-                 <!--forget password button
-                 <router-link to="/users/password-reset" class="bluish-text">Forgot Password</router-link>-->
+                 forget password button
+                 <router-link to="/users/password-reset" class="bluish-text">Forgot Password</router-link>
                 <a href="#" class="bluish-text" @click="forgetPassword">
                   <i data-feather="lock" class="pr-2" />{{ $t("forgot_password") }}?
                 </a>
-              </div>
+              </div>-->
               
           </div>
     </form>

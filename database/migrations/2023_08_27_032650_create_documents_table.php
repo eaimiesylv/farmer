@@ -16,7 +16,7 @@ class CreateDocumentsTable extends Migration
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('pitchname');
+            $table->string('pitchname', 50);
             $table->integer('pitchtype')->comment('1 business plan');
             $table->string('pitchfile');
             $table->timestamps();

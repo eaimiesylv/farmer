@@ -16,7 +16,8 @@
                          @csrf
                     <div class="form-group">
                         <label for="pitchName">Pitch Name</label>
-                        <input type="text" class="form-control" id="pitchName" name="pitchname" placeholder="Enter pitch name" required>
+                        <input type="text" class="form-control" id="pitchName" name="pitchname" placeholder="Enter pitch name" maxlength=50 required>
+                        <span>Max length:50</span>
                     </div>
                     <div class="form-group">
                         <label for="pitchType">Pitch Type</label>

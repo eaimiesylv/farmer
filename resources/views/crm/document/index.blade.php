@@ -10,20 +10,22 @@
     </div>
     <div class="col-md-12 mt-4">
         <div class="d-flex">
+        @if( Auth::user()->role == 3)
             <button class="btn btn-primary btnFormat">
-                Pitch Name
+                List of Created Pitch 
             </button>
-            <button class="btn btn-primary btnFormat">
+        @endif
+           <!--  <button class="btn btn-primary btnFormat">
                 Pitch Type
             </button>
             <button class="btn btn-primary btnFormat">
                 Created
             </button>
 
-            <!-- Button with Icons -->
-            <button class="btn btn-primary ml-auto">
+            Button with Icons -->
+            <!-- <button class="btn btn-primary ml-auto">
                 <i class="fas fa-search"></i> Search
-            </button>
+            </button> -->
         </div>
     </div>
 </div>
@@ -57,7 +59,7 @@
                 <td>S/N</td>
                 <td>Pitch Name</td>
                 <td>Pitch Type</td>
-                <td>Action</td>
+                <!-- <td>Action</td> -->
               
             </tr>
         </thead>
@@ -69,13 +71,13 @@
                         <td>{{ $i++}}</td>
                         <td>{{ $record->pitchname }}</td>
                         <td>{{ $record->pitchtype }}</td>
-                        <td>
+                        <!-- <td>
                             <a href="{{ url($record->pitchfile) }}" target="_blank">
                                 <i class="fas fa-eye"></i>
                             </a>
                             <i class="fas fa-trash" style="color:red;margin:0 1em;"></i>
                             <i class="fas fa-pen" style="color:green"></i>
-                        </td>
+                        </td> -->
                        
                     </tr>
                 @endforeach

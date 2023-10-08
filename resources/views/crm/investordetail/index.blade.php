@@ -9,19 +9,19 @@
     <div class="col-md-12 mt-4">
         <div class="d-flex">
             <button class="btn btn-primary btnFormat">
-                Finance Institution
+                Current investors in your Niche
             </button>
-            <button class="btn btn-primary btnFormat">
+            <!-- <button class="btn btn-primary btnFormat">
                 Created at
             </button>
             <button class="btn btn-primary btnFormat">
                 Phone
-            </button>
+            </button> -->
 
             <!-- Button with Icons -->
-            <button class="btn btn-primary ml-auto">
+            <!-- <button class="btn btn-primary ml-auto">
                 <i class="fas fa-search"></i> Search
-            </button>
+            </button> -->
         </div>
     </div>
 </div>

@@ -16,13 +16,13 @@
         ],
         [
             'icon' => 'users',
-            'name' => __('Investor detail',[],$locale),
+            'name' => __('Investors',[],$locale),
             'url' => request()->root().'/admin/investor_detail',
            'permission' => authorize_any(['view_investor_detail']),
         ],
         [
             'icon' => 'users',
-            'name' => __('Agribusiness',[],$locale),
+            'name' => __('Agribusinesses',[],$locale),
             'url' => request()->root().'/admin/agri_business',
            'permission' => authorize_any(['view_agri_business']),
         ],
@@ -99,12 +99,12 @@
             'name' => __('default.deals',[],$locale),
             'permission' => authorize_any(['view_deals', 'view_pipelines', 'view_lost_reasons','manage_deal']),
             'subMenu' => [
-                [
+                /*[
                     'name' => __('default.all_deals',[],$locale),
                     'url' => request()->root().'/deals/list/view',
                     'permission' => authorize_any(['view_deals']),
 
-                ],
+                ],*/
                 
                 [
                     'name' => __('default.all_deals',[],$locale),
@@ -112,7 +112,7 @@
                     'permission' => authorize_any(['view_deals']),
 
                 ],
-                [
+                /*[
                     'name' => __('default.pipelines',[],$locale),
                     'url' => request()->root().'/pipelines/list/view',
                     'permission' => authorize_any(['view_pipelines']),
@@ -122,7 +122,7 @@
                     'url' => request()->root().'/deals/pipeline/view',
                     'permission' => authorize_any(['page_deals_pipeline']),
 
-                ]
+                ]*/
                  
             ],
         ],

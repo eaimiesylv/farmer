@@ -53,6 +53,7 @@ class DocumentController extends Controller
             // Validate the uploaded file
             $request->validate([
                 //'pitchfile' => 'required|file|mimes:pdf,doc,docx,jpg,png|max:1024', // Adjust the allowed file types as needed
+                'pitchname' => 'required|max:50',
                 'pitchfile' => 'required|file|mimes:pdf|max:2060', // Adjust the allowed file types as needed
             ]);
 
@@ -62,7 +63,7 @@ class DocumentController extends Controller
            
             $path= new Imageupload($request->file('pitchfile'),'doc','none');
            
-            $formdata=array_merge($request->all(),['pitchfile'=>$path->storage_path,'user_id'=>Auth::user()->id]);
+            $formdata = array_merge($request->except('_token'), ['pitchfile' => $path->storage_path, 'user_id' => Auth::user()->id]);
             Document::FirstOrCreate($formdata);
             return redirect()->route('view_pitch.index')->with('success', 'Pitch file uploaded successfully.');
         }catch(QueryException $e){

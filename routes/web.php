@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\API\AgricBusinessController;
 use App\Http\Controllers\API\InvestorDetailController;
-use App\Http\Controllers\API\ManageDealController;
+use App\Http\Controllers\ManageDealController;
 
 //https://docs.google.com/document/d/1rfZoFNZ9JBXxA6RR12VWzHJq_I71YmMxtsNBA8uwHQQ/edit
 /*
@@ -86,7 +86,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'authorize']], funct
     Route::resource('/pitch/view_pitch', DocumentController::class);
     Route::resource('/agri_business', AgricBusinessController::class);
     Route::resource('/investor_detail', InvestorDetailController::class);
-    Route::resource('/managedeals', DocumentController::class);
+    Route::resource('/managedeals', ManageDealController::class);
     Route::get('/user_detail/{id}/{type}',[App\Http\Controllers\CRM\User\ProfileController::class, 'agriBusinessDetail']);
 });
 

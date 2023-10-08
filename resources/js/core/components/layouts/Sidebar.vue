@@ -3,10 +3,10 @@
     <div
       class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
     >
-       <a class="navbar-brand brand-logo" :href="logoUrl">
+       <a class="navbar-brand brand-logo" href="https://connect.fnsdealroom.com/admin/dashboard">
         <img src="/images/log.png" alt="logo" />
       </a>
-      <a class="navbar-brand brand-logo-mini" :href="logoUrl">
+      <a class="navbar-brand brand-logo-mini" href="https://connect.fnsdealroom.com/admin/dashboard">
         <img src="/images/log.png" alt="logo" />
       </a> 
     </div>
@@ -71,7 +71,7 @@ export default {
     },
     logoUrl: {
       type: String,
-      default: AppFunction.getAppUrl("/"),
+      default: "https://connect.fnsdealroom.com/admin/dashboard",
     },
   },
   mounted() {

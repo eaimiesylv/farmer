@@ -102,7 +102,37 @@ class InvestorDetailController extends Controller
     {
         //
     }
-
+    public function deal_with_investor(){
+        $type=Auth::user()->role;
+         
+        if($type == 3){
+            //get all categories related to this agric owner
+          $Type= \App\Models\AgricBusiness::select('id','preferredValueChain')->where('user_id', Auth::user()->id)->first();
+          if(is_null($Type)){
+              $matchingRecords = [];
+                return view('crm.investordetail.index')->with('matchingRecords', $matchingRecords);
+            }
+          
+          $namesToSearch=$Type->preferredValueChain;
+          //select all investors in this category
+          $matchingRecords = \App\Models\InvestorDetail::where(function ($query) use ($namesToSearch) {
+                foreach ($namesToSearch as $name) {
+                    $query->orWhereJsonContains('investment_type', $name);
+                }
+            })->get();
+          
+        }
+        else if($type == 1){
+            
+            $matchingRecords = \App\Models\InvestorDetail::all();
+        }
+        if(count($matchingRecords)>0){
+            $matchingRecords->load('user');
+            return view('crm.investordetail.index')->with('matchingRecords', $matchingRecords);
+        }else{
+            return view('crm.investordetail.index')->with('matchingRecords', $matchingRecords);
+        }
+    }
     /**
      * Show the form for editing the specified resource.
      *

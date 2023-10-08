@@ -50,7 +50,7 @@ class UserApiController extends Controller
             'commonComponentData.contact_person' => 'required|string|max:60',
             'commonComponentData.email' => 'required|email|max:50|unique:users,email',
             'commonComponentData.fullname' => 'required|string|max:50',
-            'commonComponentData.password' => 'required|string|min:6|max:15',
+            'commonComponentData.password' => 'required|string|min:8|max:15',
             'commonComponentData.phone_number' => 'required|string|max:20|unique:users,phone_number',
         ]);
 

@@ -41,7 +41,7 @@
                     :show-password="true"
                   />
                 </div>
-                <span v-if="password_error" class="text-danger">Password must be a min of 6, max of 15 letter and must contain any of
+                <span v-if="password_error" class="text-danger">Password must be a min of 8, max of 15 letter and must contain any of
                   +\×#%@\$\!\*\(\)&£₩\-\,?;":,..</span>
                
             </div>

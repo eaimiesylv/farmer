@@ -11,6 +11,49 @@
                         <div class="row">
                             <div class="col-xl-3 d-flex align-items-center">
                                 <label for="input-text-fullname"
+                                    class="text-left d-block mb-lg-2 mb-xl-0">Fullname</label>
+                            </div>
+                            <div class="col-xl-8">
+                            
+                                <app-input type="text"
+                                        :disabled="clientRoleAccess"
+                                        id="fullname"
+                                        placeholder="Full name"
+                                        :required="true"
+                                        v-model="userProfileInfo.fullname"/>
+                                            
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Deal Name -->
+                <div class="col-xl-6 col-lg-12">  
+            
+                    <div class="form-group mb-primary">
+                        <div class="row">
+                            <div class="col-xl-3 d-flex align-items-center">
+                                <label for="input-text-fullname"
+                                    class="text-left d-block mb-lg-2 mb-xl-0">Email</label>
+                            </div>
+                            <div class="col-xl-8">
+                            
+                                <app-input type="text"
+                                        :disabled="clientRoleAccess"
+                                        id="input-text-email"
+                                        placeholder="Email"
+                                        :required="true"
+                                        v-model="userProfileInfo.email"/>
+                                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-6 col-lg-12">
+                    <!-- Organization Name -->
+                    <div class="form-group mb-primary">
+                        <div class="row">
+                            <div class="col-xl-3 d-flex align-items-center">
+                                <label for="input-text-fullname"
                                     class="text-left d-block mb-lg-2 mb-xl-0">Organization Name</label>
                             </div>
                             <div class="col-xl-8">
