@@ -57,7 +57,8 @@ class ManageDealController extends Controller
             try{
                 $request->validate([
                     'title' => 'required|max:50',
-                    'description' => 'required|max:300', 
+                    'description' => 'required|max:300',
+                    'deal_value' => 'required|integer|max:9999999999', 
                 ]);
                 
                  ManageDeal::create($request->all());

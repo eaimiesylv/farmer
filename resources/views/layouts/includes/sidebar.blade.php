@@ -99,12 +99,12 @@
             'name' => __('default.deals',[],$locale),
             'permission' => authorize_any(['view_deals', 'view_pipelines', 'view_lost_reasons','manage_deal']),
             'subMenu' => [
-                /*[
+                [
                     'name' => __('default.all_deals',[],$locale),
                     'url' => request()->root().'/deals/list/view',
                     'permission' => authorize_any(['view_deals']),
 
-                ],*/
+                ],
                 
                 [
                     'name' => __('default.all_deals',[],$locale),

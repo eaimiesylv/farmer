@@ -59,7 +59,7 @@
                 <td>S/N</td>
                 <td>Pitch Name</td>
                 <td>Pitch Type</td>
-                <!-- <td>Action</td> -->
+                <td>View Pitch</td>
               
             </tr>
         </thead>
@@ -71,13 +71,13 @@
                         <td>{{ $i++}}</td>
                         <td>{{ $record->pitchname }}</td>
                         <td>{{ $record->pitchtype }}</td>
-                        <!-- <td>
+                        <td>
                             <a href="{{ url($record->pitchfile) }}" target="_blank">
                                 <i class="fas fa-eye"></i>
                             </a>
-                            <i class="fas fa-trash" style="color:red;margin:0 1em;"></i>
-                            <i class="fas fa-pen" style="color:green"></i>
-                        </td> -->
+                           <!-- <i class="fas fa-trash" style="color:red;margin:0 1em;"></i>
+                            <i class="fas fa-pen" style="color:green"></i>-->
+                        </td> 
                        
                     </tr>
                 @endforeach
