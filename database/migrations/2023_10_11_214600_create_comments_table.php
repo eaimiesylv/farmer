@@ -15,6 +15,10 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id')->index()->comment('user_id is agric business id');
+            $table->longText('description');
+            $table->integer('investor_id')->index();
+            $table->integer('created_by')->index();
             $table->timestamps();
         });
     }

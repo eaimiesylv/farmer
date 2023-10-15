@@ -41,5 +41,11 @@ class ManageDeal extends Model
                 return 'pending';
         }
     }
+    public function investor(){
+        return $this->belongsTo(User::class,'investor_id','id')->select("id","fullname","created_at");
+    }
+    public function agricbusiness(){
+        return $this->belongsTo(User::class,'user_id','id')->select("id","fullname","created_at");
+    }
     
 }

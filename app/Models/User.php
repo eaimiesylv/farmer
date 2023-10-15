@@ -41,6 +41,7 @@ class User extends Authenticatable
      
     ];
 
+
     /**
      * The attributes that should be cast.
      *
@@ -48,7 +49,9 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'created_at' => 'datetime:d-m-y H:i:s',
     ];
+    
     public function roles()
     {
         return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id');

@@ -13,7 +13,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-8">
-                        <!-- <form method="POST" action="{{ route('managedeals.store') }}" enctype="multipart/form-data">
+                       <!-- <form method="POST" action="{{ route('managedeals.store') }}" enctype="multipart/form-data">
                                 @csrf
                         
                             <div class="form-group">
@@ -22,7 +22,7 @@
                                 <span>Max length: 300 </span>
                             </div>
                         
-                            <!-- <div class="form-group">
+                            <div class="form-group">
                                 <label for="investor">Select Investor</label>
                                 <select class="form-control" id="investor" name="investor_id" required>
                                     @if(!empty($investor))
@@ -33,7 +33,7 @@
                                         <option value="" disabled>No investor found</option>
                                     @endif
                                 </select>
-                            </div> -->
+                            </div>
 
                             
                             <div class="modal-footer">
@@ -42,7 +42,7 @@
                             </div>
                         </form> -->
                     </div>
-                    <div class="col-md-4">
+                    <!-- <div class="col-md-4">
                         <ul>
                             <li><h6 class="title">Stage</h6>
                                  <p class="description">Inital discussion</p>
@@ -57,7 +57,7 @@
                                  <p class = "description">2023-10-05</p>
                              </li>
                          </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
            

@@ -25,11 +25,11 @@ class ManageDealController extends Controller
             
         }if($user_type == 3){
             //Agric business
-            $matchingRecords= ManageDeal::where('user_id', Auth::user()->id)->get();
+            $matchingRecords= ManageDeal::where('user_id', Auth::user()->id)->with('investor')->get();
         }
         else{
             //
-            $matchingRecords= ManageDeal::where('investor_id', Auth::user()->id)->get();
+            $matchingRecords= ManageDeal::where('investor_id', Auth::user()->id)->with('agricbusiness')->get();
         }
       
         //$matchingRecords=[];

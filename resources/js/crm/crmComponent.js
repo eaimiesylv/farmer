@@ -29,7 +29,11 @@ Vue.component(
     "app-reset-password",
     require("./Component/Views/Auth/ResetPassword").default
 );
-
+//Comment on deal
+Vue.component(
+    "app-comment-deal",
+    require("./Component/Views/ManageDeal/DealComment").default
+);
 Vue.component(
     "app-top-navbar",
     require("./Component/Views/Includes/TopNavbar").default
@@ -723,6 +727,8 @@ Vue.component(
 
 // for reports
 Vue.component('reports-deal', require("./Component/Views/Reports/Deal/ReportDeal").default);
+
+//Vue.component('rep-deal', require("./Component/Views/Reports/Deal/ReportDeal").default);
 
 Vue.component('reports-deal-details', require("./Component/Views/Reports/Deal/ReportDealDetails").default);
 

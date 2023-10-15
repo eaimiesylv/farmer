@@ -77,7 +77,11 @@
                         </div>
                         <div class="d-flex align-items-baseline mt-4">
                             <i class="fas fa-comments mr-3" style="color:green;"></i> 
-                            <a href="#"><span class="mr-auto" data-toggle="modal" data-target="#commentDealModal">Chat</span></a>
+                            <a href="#" data-toggle="modal" data-target="#commentDealModal">
+                                <span class="mr-auto">Chat</span>
+                            </a>
+                            
+
                         </div>
                         <div class="d-flex align-items-baseline mt-4">
                             <i class="fas fa-dollar-sign mr-3"></i> 
@@ -100,6 +104,7 @@
                         </div>
                     </div>
                 </div>
+                <app-comment-deal :matching-Records="{{ json_encode($record) }}" />
 
             </div>
             @endforeach
@@ -114,8 +119,20 @@
 </div>
 
 @include('crm.manage_deal.create_deal_modal', ['matchingRecords' => $matchingRecords])
-@include('crm.manage_deal.comment_deal_modal', ['matchingRecords' => $matchingRecords])
+<!-- @include('crm.manage_deal.comment_deal_modal', ['matchingRecords' => $matchingRecords])  -->
+<!-- <script>
+    $(document).ready(function () {
+        // Event listener for when the modal is about to be shown
+        $('#commentDealModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var recordData = button.data('record'); // Extract info from data-* attributes
+            var modal = $(this);
 
+            // Update modal content with the record details
+            modal.find('.modal-body').html('<pre>' + JSON.stringify(recordData, null, 2) + '</pre>');
+        });
+    });
+</script> -->
 @endsection
 
 

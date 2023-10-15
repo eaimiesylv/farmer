@@ -15,10 +15,10 @@ class CreateManageDealsTable extends Migration
     {
         Schema::create('manage_deals', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->integer('user_id')->index();
             $table->string('title', 150);
             $table->string('description', 500);
-            $table->integer('investor_id');
+            $table->integer('investor_id')->index();
             $table->integer('deal_value');
             $table->integer('pipeline_id')->default(1);
             $table->date('expected_closing_date');
