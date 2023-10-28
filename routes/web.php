@@ -11,6 +11,8 @@ use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\API\AgricBusinessController;
 use App\Http\Controllers\API\InvestorDetailController;
 use App\Http\Controllers\ManageDealController;
+use App\Http\Controllers\DealProposalController;
+use App\Http\Controllers\DealInvoiceController;
 
 //https://docs.google.com/document/d/1rfZoFNZ9JBXxA6RR12VWzHJq_I71YmMxtsNBA8uwHQQ/edit
 /*
@@ -87,6 +89,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'authorize']], funct
     Route::resource('/agri_business', AgricBusinessController::class);
     Route::resource('/investor_detail', InvestorDetailController::class);
     Route::resource('/managedeals', ManageDealController::class);
+    Route::resource('/dealproposals', DealProposalController::class);
+    Route::resource('/dealinvoices', DealInvoiceController::class);
     Route::get('/user_detail/{id}/{type}',[App\Http\Controllers\CRM\User\ProfileController::class, 'agriBusinessDetail']);
 });
 

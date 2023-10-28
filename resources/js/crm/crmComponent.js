@@ -34,6 +34,11 @@ Vue.component(
     "app-comment-deal",
     require("./Component/Views/ManageDeal/DealComment").default
 );
+//Comment on deal proposal
+Vue.component(
+    "app-deal-proposal",
+    require("./Component/Views/DealProposal/DealProposal").default
+);
 Vue.component(
     "app-top-navbar",
     require("./Component/Views/Includes/TopNavbar").default

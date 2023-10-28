@@ -47,5 +47,8 @@ class ManageDeal extends Model
     public function agricbusiness(){
         return $this->belongsTo(User::class,'user_id','id')->select("id","fullname","created_at");
     }
+    public function proposals(){
+        return $this->hasMany(DealProposal::class,'deal_id','id')->select("id","title","description","deal_id");
+    }
     
 }

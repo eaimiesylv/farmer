@@ -99,13 +99,13 @@
             'name' => __('default.deals',[],$locale),
             'permission' => authorize_any(['view_deals', 'view_pipelines', 'view_lost_reasons','manage_deal']),
             'subMenu' => [
-                [
+               /* [
                     'name' => __('default.all_deals',[],$locale),
                     'url' => request()->root().'/deals/list/view',
                     'permission' => authorize_any(['view_deals']),
 
-                ],
-                
+                ],*/
+                /************************************************************************** This session handles viewing of deal**************************/
                 [
                     'name' => __('default.all_deals',[],$locale),
                     'url' => request()->root().'/admin/managedeals',
@@ -126,13 +126,26 @@
                  
             ],
         ],
+        /************************************************************************ This handles Invoice and proposal of ************************************** */
+        /*[
+           'icon' => 'file-text',
+           'name' => __('default.invoices',[],$locale),
+            'url' => request()->root().'/invoices/list',
+           'permission' => authorize_any(['view_invoice']),
+        ],
         [
            'icon' => 'file-text',
            'name' => __('default.invoices',[],$locale),
-           'url' => request()->root().'/invoices/list',
+           'url' => request()->root().'/admin/dealinvoices',
            'permission' => authorize_any(['view_invoice']),
+        ],*/
+        [
+            'icon' => 'hexagon',
+            'name' => __('Proposal',[],$locale),
+            'url' => request()->root().'/admin/dealproposals',
+            'permission' => authorize_any(['view_proposal']),
         ],
-
+        /*
         [
             'id' => 'proposals',
             'icon' => 'hexagon',
@@ -150,7 +163,7 @@
                     'permission' => authorize_any(['view_templates']),
                 ],
             ],
-        ],
+        ],*/
         /*[
             'id' => 'activities',
             'icon' => 'activity',
@@ -187,7 +200,7 @@
                 ]
             ],
         ],*/
-        [
+       /* [
             'id' => 'reports',
             'icon' => 'bar-chart',
             'name' => __('default.reports',[],$locale),
@@ -223,7 +236,9 @@
             'url' => request()->root().'/settings/page',
             'permission' => authorize_any(['view_settings']),
 
-        ],
+        ],*/
+       
+       
     ];
 @endphp
 <sidebar :data="{{ json_encode($data) }}"

@@ -25,13 +25,16 @@ class ManageDealController extends Controller
             
         }if($user_type == 3){
             //Agric business
-            $matchingRecords= ManageDeal::where('user_id', Auth::user()->id)->with('investor')->get();
+            $matchingRecords= ManageDeal::where('user_id', Auth::user()->id)
+                ->with('investor') 
+                ->with('proposals') 
+                ->get();
         }
         else{
             //
-            $matchingRecords= ManageDeal::where('investor_id', Auth::user()->id)->with('agricbusiness')->get();
+            $matchingRecords= ManageDeal::where('investor_id', Auth::user()->id)->with('agricbusiness','proposals')->get();
         }
-      
+       // return $matchingRecords;
         //$matchingRecords=[];
         return view('crm.manage_deal.index', compact('matchingRecords', 'investor'));
     }

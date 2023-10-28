@@ -30,7 +30,7 @@
                     <div class="form-group">
                         <label for="investor">Select Investor</label>
                         <select class="form-control" id="investor" name="investor_id" required>
-                            @if(!empty($investor))
+                            @if($investor && count($investor) > 0)
                                 @foreach($investor as $investorOption)
                                     <option value="{{ $investorOption['id'] }}">{{ $investorOption['fullname'] }}</option>
                                 @endforeach

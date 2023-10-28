@@ -9,9 +9,9 @@
             
                     <img src="https://connect.fnsdealroom.com/images/profile.png" alt="logo" class="rounded-circle" width="50" height="50"/>
                   
-                    {{  receiver_detail }}
-                    {{  current_view }}
-                
+                    <span class="mr-4">{{  receiver_detail }}</span>
+                   
+                    {{ matchingRecords }}
                 </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -27,7 +27,7 @@
                             <small>{{ comment.created_at }}</small>
                         </div>
                     </div>
-                    <div class="col-md-12 mt-3">
+                    <div class="col-md-12 mt-5">
                         <form enctype="multipart/form-data">
                             
                         
@@ -81,7 +81,7 @@ export default {
   },
   data(){
      return{
-        description:"test",
+        description:" ",
         receiver_detail:"",
         comments :"",
         loading: false,
@@ -107,17 +107,18 @@ export default {
             const response = await axios.post('/api/comments', payload); 
             // Handle the response
             if (response.data) {
-                console.log(response.data)
+                // console.log(response.data)
               
                 let user_id=this.matchingRecords.user_id;
                 let investor_id=this.matchingRecords.investor_id;
                 this.comments.unshift(response.data);
                 // this.getComment(user_id, investor_id);
                  this.loading = false;
+                 this.description = " ";
             
             } 
          }catch(error){
-            console.log(error);
+            // console.log(error);
          }
          finally {
             this.loading = false;
@@ -146,26 +147,35 @@ export default {
     let type;
     let investor_id
     let user_id
+   
     // Pull investor detail
+    // if (this.matchingRecords.investor.fullname != undefined) {
     if (this.matchingRecords.investor && this.matchingRecords.investor.fullname) {
         fullname = this.matchingRecords.investor.fullname;
         type= "Investor";
         date = this.matchingRecords.investor.created_at;
         this.created_by = this.matchingRecords.investor.id;
         this.current_view = this.created_by
+        // console.log('investor')
+        // console.log(this.matchingRecords);
 
-    } else if (this.matchingRecords.agricbusiness && this.matchingRecords.agricbusiness.fullname) {
+    }
+    // else if (this.matchingRecords.agricbusiness != undefined) {
+    else if (this.matchingRecords.agricbusiness && this.matchingRecords.agricbusiness.fullname) {
         fullname = this.matchingRecords.agricbusiness.fullname;
         type= "Agricbusiness"
         date = this.matchingRecords.agricbusiness.created_at;
         this.created_by = this.matchingRecords.agricbusiness.id;
         this.current_view = this.created_by
+        // console.log('agric')
+        // console.log(this.matchingRecords);
        
     } else {
 
     fullname = " ";
     }
     this.receiver_detail = " " + fullname + " " + type + " " + " since " + date;
+    // console.log(this.matchingRecords)
     user_id= this.matchingRecords.user_id;
     investor_id= this.matchingRecords.investor_id;
     this.getComment(user_id, investor_id);

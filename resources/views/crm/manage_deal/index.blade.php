@@ -15,11 +15,6 @@
             <button class="btn btn-primary btnFormat">
                 List of created deals
             </button>
-
-            <!-- Button with Icons -->
-            <!-- <button class="btn btn-primary ml-auto">
-                <i class="fas fa-search"></i> Search
-            </button> -->
         </div>
     </div>
 </div>
@@ -53,6 +48,8 @@
         @if (count($matchingRecords) > 0)
         
             @foreach ($matchingRecords as $record)  
+           
+                    
                 
             <div class="col-lg-3 col-md-6 col-sm-6 mt-3">
             
@@ -94,17 +91,21 @@
                         </div>
                         <hr>
                         <div class="d-flex align-items-baseline mt-4">
-                            <p><span>Comment</span>
-                                 <span class="ml-3">0</span>
-                            </p>
                             <p class="ml-3">
-                                <span>Proposal</span>
-                                <span class="ml-3">0</span>
+                               <a href="#" data-toggle="modal" data-target="#proposalDealModal{{ $record->id }}" data-record="{{ json_encode($record->proposals[0]) }}">
+                                  <span class="mr-auto"> Proposal</span>
+                               </a>
                             </p>
+                            @if (!empty($record->proposals) && count($record->proposals) > 0)
+                              
+                                <app-deal-proposal :modal-id="'proposalDealModal' + {{ $record->id }}" :matching-Records="{{ json_encode($record->proposals[0]) }}" />
+                            @endif
                         </div>
                     </div>
                 </div>
+               
                 <app-comment-deal :matching-Records="{{ json_encode($record) }}" />
+
 
             </div>
             @endforeach
@@ -120,19 +121,7 @@
 
 @include('crm.manage_deal.create_deal_modal', ['matchingRecords' => $matchingRecords])
 <!-- @include('crm.manage_deal.comment_deal_modal', ['matchingRecords' => $matchingRecords])  -->
-<!-- <script>
-    $(document).ready(function () {
-        // Event listener for when the modal is about to be shown
-        $('#commentDealModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget); // Button that triggered the modal
-            var recordData = button.data('record'); // Extract info from data-* attributes
-            var modal = $(this);
 
-            // Update modal content with the record details
-            modal.find('.modal-body').html('<pre>' + JSON.stringify(recordData, null, 2) + '</pre>');
-        });
-    });
-</script> -->
 @endsection
 
 

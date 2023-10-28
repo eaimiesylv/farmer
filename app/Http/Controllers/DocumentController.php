@@ -52,14 +52,10 @@ class DocumentController extends Controller
         try{
             // Validate the uploaded file
             $request->validate([
-                //'pitchfile' => 'required|file|mimes:pdf,doc,docx,jpg,png|max:1024', // Adjust the allowed file types as needed
+    
                 'pitchname' => 'required|max:50',
                 'pitchfile' => 'required|file|mimes:pdf|max:2060', // Adjust the allowed file types as needed
             ]);
-
-            // Store the uploaded file in a specific directory (e.g., 'uploads/pitches')
-           // $uploadedFile = $request->file('pitchfile');
-           // $path = $uploadedFile->store('public/pitches');
            
             $path= new Imageupload($request->file('pitchfile'),'doc','none');
            
