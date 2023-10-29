@@ -74,7 +74,7 @@
                         </div>
                         <div class="d-flex align-items-baseline mt-4">
                             <i class="fas fa-comments mr-3" style="color:green;"></i> 
-                            <a href="#" data-toggle="modal" data-target="#commentDealModal">
+                            <a href="#" data-toggle="modal" data-target="#commentDealModal{{ $record->id }}">
                                 <span class="mr-auto">Chat</span>
                             </a>
                             
@@ -104,7 +104,7 @@
                     </div>
                 </div>
                
-                <app-comment-deal :matching-Records="{{ json_encode($record) }}" />
+                <app-comment-deal :modal-id="'commentDealModal' + {{ $record->id }}" :matching-Records="{{ json_encode($record) }}" />
 
 
             </div>
@@ -123,5 +123,3 @@
 <!-- @include('crm.manage_deal.comment_deal_modal', ['matchingRecords' => $matchingRecords])  -->
 
 @endsection
-
-

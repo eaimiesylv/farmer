@@ -73,16 +73,17 @@
                         <td>{{ $record->title }}</td>
                         <td>{{ $record->deals->title }}</td>
                         <td>
-                          
-                            <a href="#" data-toggle="modal" data-target="#proposalDealModal">
-                                <span class="mr-auto"> <i class="fas fa-eye"></i></span>
+                        
+                            <a href="#" data-toggle="modal" data-target="#proposalDealModal{{ $record->id }}" data-record="{{ json_encode($record) }}">
+                                  
+                                  <span class="mr-auto"> <i class="fas fa-eye"></i></span>
                             </a>
-                           <!-- <i class="fas fa-trash" style="color:red;margin:0 1em;"></i>
-                            <i class="fas fa-pen" style="color:green"></i>-->
+                         
                         </td> 
                        
                     </tr>
-                    <app-deal-proposal :matching-Records="{{ json_encode($record) }}" />
+                   
+                    <app-deal-proposal :modal-id="'proposalDealModal' + {{ $record->id }}" :matching-Records="{{ json_encode($record) }}" />
                 @endforeach
             @else
                 <tr>
