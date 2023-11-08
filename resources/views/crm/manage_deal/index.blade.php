@@ -92,9 +92,14 @@
                         <hr>
                         <div class="d-flex align-items-baseline mt-4">
                             <p class="ml-3">
-                               <a href="#" data-toggle="modal" data-target="#proposalDealModal{{ $record->id }}" data-record="{{ json_encode($record->proposals[0]) }}">
-                                  <span class="mr-auto"> Proposal</span>
-                               </a>
+								@if (!empty($record->proposals) && count($record->proposals) > 0)
+								   <a href="#" data-toggle="modal" data-target="#proposalDealModal{{ $record->id }}" data-record="{{ json_encode($record->proposals[0]) }}">
+									  <span class="mr-auto"> Proposal</span>
+								   </a>
+								@else
+									<!--<a href="/admin/dealproposals"><span class="mr-auto"> Add  Proposal</span></a>-->
+									<span class="mr-auto"> No Proposal added yet</span>
+							    @endif
                             </p>
                             @if (!empty($record->proposals) && count($record->proposals) > 0)
                               

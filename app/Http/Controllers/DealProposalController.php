@@ -52,7 +52,7 @@ class DealProposalController extends Controller
                 ]);
                 
                  DealProposal::create($request->all());
-                 return redirect()->route('dealproposals.index')->with('success', 'Deal created successfully.');
+                 return redirect()->route('dealproposals.index')->with('success', 'Proposal created successfully.');
             }
             catch(QueryException $e){
                 Log::error('Error storing document: ' . $e->getMessage());
